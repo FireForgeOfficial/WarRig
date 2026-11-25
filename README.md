@@ -73,6 +73,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - Move, home and level, with step sizes and a bed up/down pad
 - Speed, flow and live Z offset (babystep)
 - Case light on/off
+- **Printer info card** on Home: firmware, CPU temperature and load, memory and storage at a glance; tap for full details
 - **Skip a failed part mid-print** (exclude object) from a plate map
 - Calibration tools and a visual bed mesh
 - Console for advanced users, behind a beginner warning
@@ -151,7 +152,6 @@ If your Moonraker needs an API key, add it in **Settings → Printer → Connect
 
 | Section | What's there |
 | --- | --- |
-| Printer info | Firmware, Klipper and Moonraker versions, CPU, memory, storage, network |
 | App | Update check, Demo mode |
 | Printer | Switch / add printers, API key, firmware restart, detected features |
 | Notifications | Print alerts, keep watching in the background |
