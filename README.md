@@ -16,13 +16,14 @@
 Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.0.0-FF8709)
+![Version](https://img.shields.io/badge/version-1.1.0-FF8709)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
 ## Contents
 
+- [What's new in 1.1.0](#whats-new-in-110)
 - [Supported printers](#supported-printers)
 - [Features](#features)
 - [Download and install](#download-and-install)
@@ -36,16 +37,29 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ---
 
+## What's new in 1.1.0
+
+- **Works properly on more printers:** lights, gantry levelling, pressure advance and Z offset saving now use the right commands for each printer, not just QIDI ones
+- **Unsupported controls are greyed out** with "Not on this printer" instead of disappearing, so you always know what's there
+- **Live Tune:** change flow, speed, pressure advance and Z offset while printing, with live speed and volumetric flow
+- **More calibration tools:** pressure advance tower, retraction, probe accuracy and bed screws, where your printer supports them
+- **Printer info card** on the Home screen
+- **Back button** goes back to Home instead of closing the app; press twice on Home to leave
+- Fixed deleting `.gcode.3mf` files
+- Updates now come from this repository's releases
+
+---
+
 ## Supported printers
 
-WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper firmware. When it connects it checks what your printer has and hides controls it doesn't have.
+WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper firmware. When it connects it checks what your printer has and picks the right commands for it. Controls your printer doesn't have stay visible but greyed out, marked **Not on this printer**.
 
 | Printer | Support |
 | --- | --- |
 | QIDI Q2 / Q2C | Full, including the QIDI BOX (main test printer) |
 | QIDI Plus4, Max4 | Full, including the QIDI BOX |
 | QIDI Q1 Pro, X-Plus 3, X-Max 3 | Everything except the QIDI BOX |
-| Other Klipper + Moonraker printers (Voron, Sovol SV08, Elegoo Neptune 4, rooted Creality K1, Sonic Pad …) | Camera, files, temperatures, motion, alerts, stats and backup. QIDI-only buttons are hidden |
+| Other Klipper + Moonraker printers (Voron, Sovol SV08, Elegoo Neptune 4, rooted Creality K1, Sonic Pad …) | Camera, files, temperatures, motion, alerts, stats, backup and calibration. Case lights (pin or LED strip), quad gantry levelling and standard Klipper Z offset saving are supported. QIDI-only buttons are greyed out |
 | Bambu Lab, stock Prusa, stock Creality K1, Marlin-only printers | Not supported (no Moonraker) |
 
 > Only the QIDI Q2 has been tested so far. Reports from other printers are welcome in [Issues](../../issues).
@@ -72,10 +86,11 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - **Preheat presets** for PLA, PETG, ABS/ASA and more
 - Move, home and level, with step sizes and a bed up/down pad
 - Speed, flow and live Z offset (babystep)
-- Case light on/off
+- Case light on/off, including Klipper pin and LED-strip lights
 - **Printer info card** on Home: firmware, CPU temperature and load, memory and storage at a glance; tap for full details
 - **Skip a failed part mid-print** (exclude object) from a plate map
-- Calibration tools and a visual bed mesh
+- **Live Tune:** adjust flow, speed, pressure advance and Z offset mid-print and see the effect straight away
+- Calibration tools: bed level and mesh, Z offset, input shaper, PID, flow, pressure advance (with tower), extruder, Z tilt or quad gantry, retraction, probe accuracy, bed screws, and a visual bed mesh
 - Console for advanced users, behind a beginner warning
 - Emergency stop and firmware restart
 
