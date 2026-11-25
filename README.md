@@ -126,7 +126,7 @@ These are in the app and marked **NOT TESTED** until they have been tried on a r
 
 ## Download and install
 
-1. Open the [latest release](https://github.com/RuntimeRangerVS/WarRig/releases/latest) and download the `.apk` file to your phone.
+1. Open the [latest release](https://github.com/RuntimeRangerVS/WarRigCompanionApp/releases/latest) and download the `.apk` file to your phone.
 2. Open it. If Android asks, allow installing apps from your browser or file manager.
 3. Open **WarRig Companion**.
 
@@ -222,6 +222,6 @@ Ideas and bug reports are welcome in [Issues](../../issues).
 
 **Copyright © 2026 RuntimeRangerVS. All rights reserved.**
 
-WarRig Companion is closed source. You're welcome to download the official app builds from [Releases](https://github.com/RuntimeRangerVS/WarRig/releases) and use them on your own devices. Copying, modifying or redistributing the app, its code or its graphics isn't allowed without permission. See [LICENSE](LICENSE) for the full terms.
+WarRig Companion is closed source. You're welcome to download the official app builds from [Releases](https://github.com/RuntimeRangerVS/WarRigCompanionApp/releases) and use them on your own devices. Copying, modifying or redistributing the app, its code or its graphics isn't allowed without permission. See [LICENSE](LICENSE) for the full terms.
 
 WarRig Companion is an independent project. It is not made, endorsed or supported by QIDI Technology. QIDI, Klipper and Moonraker names are used only to describe compatibility.
