@@ -20,7 +20,6 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 - [Safety](#safety)
 - [Privacy and permissions](#privacy-and-permissions)
 - [Troubleshooting](#troubleshooting)
-- [Building from source](#building-from-source)
 - [Roadmap](#roadmap)
 - [License](#license)
 
@@ -194,26 +193,6 @@ Snapshots, clips, backups and timelapses are saved to your phone's **Pictures, M
 
 **BOX slot shows the wrong colour**
 - The colour comes from the BOX (RFID or saved setting). Tap the refresh button on the BOX page, or set the spool on the printer.
-
----
-
-## Building from source
-
-1. Install [Android Studio](https://developer.android.com/studio) (latest stable).
-2. Clone the repository:
-   ```bash
-   git clone https://github.com/RuntimeRangerVS/WarRigCompanionApp.git
-   ```
-3. Open the folder in Android Studio and let Gradle sync.
-4. Run on a phone or emulator, or use **Build → Build APK(s)**.
-
-| | |
-| --- | --- |
-| Language | Kotlin |
-| UI | Jetpack Compose, Material 3 |
-| Min / target SDK | 26 (Android 8.0) / latest |
-| Networking | OkHttp (HTTP + WebSocket to Moonraker) |
-| Package | `com.warrig.qidi` |
 
 ---
 
