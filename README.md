@@ -1,5 +1,16 @@
 # WarRig Companion
 
+<p align="center">
+  <img src="docs/promo/all-features.png" alt="WarRig Companion: the complete app for your 3D printer" width="720">
+</p>
+
+<p align="center">
+  <img src="docs/promo/your-printer-live.png" alt="Your printer, live" width="24%">
+  <img src="docs/promo/features.png" alt="Everything your printer needs in one app" width="24%">
+  <img src="docs/promo/lock-screen.png" alt="Close the app, keep watching" width="24%">
+  <img src="docs/promo/story.png" alt="Your printer, in your pocket" width="18%">
+</p>
+
 **The Android app for your QIDI 3D printer.** Watch, control and look after your printer and QIDI BOX from your phone, with safety features that keep watching even when the app is closed.
 
 Works with official QIDI firmware, and with WarRig firmware once it is released.
