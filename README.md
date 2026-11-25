@@ -17,7 +17,7 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
 ![Version](https://img.shields.io/badge/version-1.0.0-FF8709)
-![License](https://img.shields.io/badge/license-GPL--3.0-blue)
+![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
@@ -220,6 +220,8 @@ Ideas and bug reports are welcome in [Issues](../../issues).
 
 ## License
 
-Released under the **GNU General Public License v3.0**. See [LICENSE](LICENSE).
+**Copyright © 2026 RuntimeRangerVS. All rights reserved.**
+
+WarRig Companion is closed source. You're welcome to download the official app builds from [Releases](https://github.com/RuntimeRangerVS/WarRig/releases) and use them on your own devices. Copying, modifying or redistributing the app, its code or its graphics isn't allowed without permission. See [LICENSE](LICENSE) for the full terms.
 
 WarRig Companion is an independent project. It is not made, endorsed or supported by QIDI Technology. QIDI, Klipper and Moonraker names are used only to describe compatibility.
