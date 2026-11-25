@@ -16,14 +16,14 @@
 Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.1.0-FF8709)
+![Version](https://img.shields.io/badge/version-1.1.1-FF8709)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
 ## Contents
 
-- [What's new in 1.1.0](#whats-new-in-110)
+- [What's new in 1.1](#whats-new-in-11)
 - [Supported printers](#supported-printers)
 - [Features](#features)
 - [Download and install](#download-and-install)
@@ -37,7 +37,7 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ---
 
-## What's new in 1.1.0
+## What's new in 1.1
 
 - **Works properly on more printers:** lights, gantry levelling, pressure advance and Z offset saving now use the right commands for each printer, not just QIDI ones
 - **Unsupported controls are greyed out** with "Not on this printer" instead of disappearing, so you always know what's there
