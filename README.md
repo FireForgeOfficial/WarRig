@@ -16,14 +16,14 @@
 Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.1.2-FF8709)
+![Version](https://img.shields.io/badge/version-1.1.3-FF8709)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
 ## Contents
 
-- [What's new in 1.1.2](#whats-new-in-112)
+- [What's new in 1.1.3](#whats-new-in-113)
 - [Supported printers](#supported-printers)
 - [Features](#features)
 - [Download and install](#download-and-install)
@@ -37,12 +37,13 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ---
 
-## What's new in 1.1.2
+## What's new in 1.1.3
 
 **Filament units**
 - **More than the QIDI BOX:** Happy Hare MMUs (ERCF, Tradrack, 3MS …) and AFC units (Box Turtle, Night Owl …) now show on the BOX tab, with load, unload, eject, select and edit details, plus drying on Happy Hare units with a heater
 - **Pictures that match your unit**, with every spool shown in its real filament colour, kept in sync with the printer
 - Print start matches each colour in the file to a gate or lane, and checks material and filament left
+- **Spool-turning drying for the QIDI BOX:** runs QIDI's own drying program with the spools turning so they heat evenly. It only starts when nothing is printing, every slot is ejected and the filament ends are secured to their spools. Dry while printing works as before
 - The BOX tab is named after your unit (BOX, MMU or Lanes) and is **locked** when the printer has none
 - The same filament strip on the Home screen for every unit, sized to fit any phone; black spools are now easy to see
 
@@ -115,6 +116,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - Every slot shown in its **real spool colour**, with material and brand
 - **Load, unload and eject** filament from your phone
 - **Dry while you print**, kept at a safe temperature for the loaded filament
+- **Spool-turning drying** (QIDI's own program) once all filament is ejected and the ends are secured (NOT TESTED)
 - **Auto-dry:** starts the dryer when humidity goes over your limit, for a set time
 - Humidity and temperature for each BOX
 - Pick which slot each colour of a print uses, matched automatically by colour and material
