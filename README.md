@@ -39,30 +39,10 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ## What's new in 1.1.3
 
-**Filament units**
-- **More than the QIDI BOX:** Happy Hare MMUs (ERCF, Tradrack, 3MS …) and AFC units (Box Turtle, Night Owl …) now show on the BOX tab, with load, unload, eject, select and edit details, plus drying on Happy Hare units with a heater
-- **Pictures that match your unit**, with every spool shown in its real filament colour, kept in sync with the printer
-- Print start matches each colour in the file to a gate or lane, and checks material and filament left
-- **Spool-turning drying for the QIDI BOX:** runs QIDI's own drying program with the spools turning so they heat evenly. It only starts when nothing is printing, every slot is ejected and the filament ends are secured to their spools. Dry while printing works as before
-- The BOX tab is named after your unit (BOX, MMU or Lanes) and is **locked** when the printer has none
-- The same filament strip on the Home screen for every unit, sized to fit any phone; black spools are now easy to see
-
-**Camera**
-- **Much smoother:** live video by default (Saver is now off unless you turn it on), with faster decoding
-- **Camera resolution and frame rate** can be changed from the app (crowsnest.conf or webcam.txt), with a clear warning and a backup of the old settings
-- A one-time guide to the new camera options
-
-**More printers**
-- Lights, gantry levelling (including quad gantry), pressure advance and Z offset saving use the right commands for each printer
-- Controls a printer doesn't have are greyed out with "Not on this printer" instead of disappearing, and QIDI-only items no longer show on other printers
-
-**App**
-- Animated WR start-up screen
-- Updates are now **required**: the update message shows every time the app opens until the new version is installed, with what's new in it
-- Phone notifications only for important things (print finished, paused, errors, safety, run-out); everything else stays in the app's list
-- Performance: less work on every printer update, fewer redraws and faster file previews
-- Live Tune, more calibration tools, printer info card on Home, and the back button going to Home instead of closing the app
-- Fixed deleting `.gcode.3mf` files
+- **Spool-turning drying for the QIDI BOX:** runs QIDI's own drying program with the spools turning, so they heat evenly. It only starts when nothing is printing, every slot is ejected and the filament ends are secured to their spools
+- **Stop drying** now also stops QIDI's drying program if that is what's running
+- Dry while printing works as before
+- Settings → Updates is simpler
 
 ---
 
