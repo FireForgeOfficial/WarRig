@@ -16,14 +16,14 @@
 Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.2.0-FF8709)
+![Version](https://img.shields.io/badge/version-1.2.1-FF8709)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
 ## Contents
 
-- [What's new in 1.2.0](#whats-new-in-120)
+- [What's new in 1.2.1](#whats-new-in-121)
 - [Supported printers](#supported-printers)
 - [Features](#features)
 - [Download and install](#download-and-install)
@@ -37,23 +37,12 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ---
 
-## What's new in 1.2.0
+## What's new in 1.2.1
 
-- **Away-from-home access:** add a Tailscale or https address to a printer and the app switches to it automatically when you leave home, with a **REMOTE** badge so you know
-- **Data saver** for the camera when you're away from home or on mobile data
-- **Alerts sent by the printer itself** through ntfy, so they still arrive when your phone isn't connected to the printer
-- **Failed print watch:** alerts when the filament sensor goes empty or the nozzle or bed can't hold its temperature, with an option to pause the print
-- **Spoolman:** see the spool you're printing from, pick another one and see how much is left on each
-- **Layer preview:** look through a G-code file layer by layer before you print it
-- **Print cost:** filament and electricity cost for each print and for the last 6 months, using your own prices
-- **More statistics:** hours per week and filament used by material
-- **Quick Settings tile** with the printer state and time left
-- **Languages:** German, French, Spanish and Italian, chosen in Settings or following your phone
-- **Tablet layout:** tabs down the side and two pages next to each other on big screens
-- **New Settings page:** a short menu, with each group on its own page
-- Printer info card shows the board and Moonraker versions when the printer doesn't report its own
-- Smoother bed mesh view, and a longer start-up screen
-- Demo mode has been removed
+- **WarRig Link:** add a printer by scanning a QR code instead of typing its address. It works with the code on the WarRig printer screen, in WarRig Slicer, or on another phone
+- **Open links straight in the app:** scanning a WarRig Link with your normal camera app, or tapping one, opens WarRig Companion and offers to add the printer
+- **Share a printer:** show any saved printer as a QR code so another phone can add it in seconds. The API key is only included if you choose
+- The app always shows what a code contains and asks before adding or connecting
 
 ---
 
@@ -143,6 +132,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - **Settings backup:** copies the printer's config files to `Downloads/WarRig` on your phone. Read-only on the printer
 - **Weekly backup** and **automatic timelapse download** (optional)
 - **Several printers:** save, rename and switch between them, see all of them at a glance, and **find printers on your Wi-Fi** automatically
+- **WarRig Link:** add a printer by scanning its QR code, and share a saved printer as a QR code
 - **App icon shortcuts:** long-press the icon for Camera, QIDI BOX, Files or All printers
 - **Languages:** English, German, French, Spanish and Italian
 - **Tablet and landscape layout** with side tabs and two pages side by side
@@ -158,6 +148,7 @@ These are in the app and marked **NOT TESTED** until they have been tried on a r
 - Failed print watch and pausing a failed print
 - Spoolman and layer preview
 - Spool-turning drying, Happy Hare and AFC units
+- WarRig Link QR scanning and sharing
 
 ---
 
@@ -175,13 +166,23 @@ The app checks for new versions each time it opens. Required updates must be ins
 
 ## First start
 
-1. When the app opens, tap **Add a printer**, or **Find printers on this Wi-Fi** to search automatically.
+1. When the app opens, tap **Add a printer**, **Scan WarRig Link QR code** to scan the code on the printer screen, or **Find printers on this Wi-Fi** to search automatically.
 2. Enter a name and the printer's IP address, for example `192.168.0.66`. You'll find it on the printer screen under network / Wi-Fi settings. Port `7125` is added automatically.
 3. Tap the printer to connect. To skip this screen next time, tick **Connect to the last printer automatically**.
 4. Optional: in **Settings → Notifications** turn on **Print alerts**, and allow notifications when Android asks.
 5. Optional: pick a language in **Settings → Language**. By default the app follows your phone.
 
 If your Moonraker needs an API key, add it in **Settings → Connection**. The key is kept in memory only and never saved on the phone.
+
+### WarRig Link
+
+A WarRig Link holds a printer's name, home address and, if set, its away-from-home address, so you never have to type an IP address.
+
+- **Add:** tap **Scan WarRig Link QR code** in the printer list, or point your phone's camera app at the code. Check the details, rename the printer if you like, then tap **Add and connect**. A printer you already have is updated instead of added twice.
+- **Share:** tap the QR button next to a printer to show its code. Tick **Include the API key** only if the other person needs it. Anyone who scans the code can watch and control the printer.
+- Codes pointing outside your home network are refused, and away-from-home addresses must be Tailscale or https.
+
+Scanning uses the QR scanner built into Google Play services, so the app doesn't need camera permission.
 
 ### Away from home
 
@@ -199,7 +200,7 @@ Settings is a short menu. Tap a row to open its page.
 
 | Page | What's there |
 | --- | --- |
-| Printers (top card) | Switch, add, rename and edit printers, including the away-from-home address |
+| Printers (top card) | Switch, add, rename, edit and share printers (WarRig Link QR codes), including the away-from-home address |
 | Connection | API key and the features found on your printer |
 | Firmware restart | Restart Klipper after an emergency stop or error |
 | Notifications | Print alerts, keep watching in the background, printer-sent alerts (ntfy) |
@@ -254,6 +255,9 @@ Snapshots, clips, backups and timelapses are saved to your phone's **Pictures, M
 - Turn on **Print alerts**, and either **Keep watching in background** or **Live print notification**.
 - For alerts that don't depend on the phone at all, set up **printer-sent alerts** in **Settings → Notifications**.
 - Some phones stop background apps. Set WarRig Companion's battery use to **Unrestricted** in Android settings.
+
+**QR scan doesn't start**
+- The scanner comes from Google Play services. Update Google Play services, or add the printer by its address instead.
 
 **BOX slot shows the wrong colour**
 - The colour comes from the BOX (RFID or saved setting). Tap the refresh button on the BOX page, or set the spool on the printer.
