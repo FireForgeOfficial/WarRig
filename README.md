@@ -16,14 +16,14 @@
 Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.1.1-FF8709)
+![Version](https://img.shields.io/badge/version-1.1.2-FF8709)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
 ## Contents
 
-- [What's new in 1.1](#whats-new-in-11)
+- [What's new in 1.1.2](#whats-new-in-112)
 - [Supported printers](#supported-printers)
 - [Features](#features)
 - [Download and install](#download-and-install)
@@ -37,16 +37,32 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ---
 
-## What's new in 1.1
+## What's new in 1.1.2
 
-- **Works properly on more printers:** lights, gantry levelling, pressure advance and Z offset saving now use the right commands for each printer, not just QIDI ones
-- **Unsupported controls are greyed out** with "Not on this printer" instead of disappearing, so you always know what's there
-- **Live Tune:** change flow, speed, pressure advance and Z offset while printing, with live speed and volumetric flow
-- **More calibration tools:** pressure advance tower, retraction, probe accuracy and bed screws, where your printer supports them
-- **Printer info card** on the Home screen
-- **Back button** goes back to Home instead of closing the app; press twice on Home to leave
+**Filament units**
+- **More than the QIDI BOX:** Happy Hare MMUs (ERCF, Tradrack, 3MS …) and AFC units (Box Turtle, Night Owl …) now show on the BOX tab, with load, unload, eject, select and edit details, plus drying on Happy Hare units with a heater
+- **Pictures that match your unit**, with every spool shown in its real filament colour, kept in sync with the printer
+- Print start matches each colour in the file to a gate or lane, and checks material and filament left
+- The BOX tab is named after your unit (BOX, MMU or Lanes) and is **locked** when the printer has none
+- The same filament strip on the Home screen for every unit, sized to fit any phone; black spools are now easy to see
+
+**Camera**
+- **Much smoother:** live video by default (Saver is now off unless you turn it on), with faster decoding
+- **Camera resolution and frame rate** can be changed from the app (crowsnest.conf or webcam.txt), with a clear warning and a backup of the old settings
+- A one-time guide to the new camera options
+
+**More printers**
+- Lights, gantry levelling (including quad gantry), pressure advance and Z offset saving use the right commands for each printer
+- Controls a printer doesn't have are greyed out with "Not on this printer" instead of disappearing, and QIDI-only items no longer show on other printers
+
+**App**
+- Animated WR start-up screen
+- Updates are now **required**: the update message shows every time the app opens until the new version is installed, with what's new in it
+- **Update log** in Settings → Updates
+- Phone notifications only for important things (print finished, paused, errors, safety, run-out); everything else stays in the app's list
+- Performance: less work on every printer update, fewer redraws and faster file previews
+- Live Tune, more calibration tools, printer info card on Home, and the back button going to Home instead of closing the app
 - Fixed deleting `.gcode.3mf` files
-- Updates now come from this repository's releases
 
 ---
 
@@ -59,7 +75,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 | QIDI Q2 / Q2C | Full, including the QIDI BOX (main test printer) |
 | QIDI Plus4, Max4 | Full, including the QIDI BOX |
 | QIDI Q1 Pro, X-Plus 3, X-Max 3 | Everything except the QIDI BOX |
-| Other Klipper + Moonraker printers (Voron, Sovol SV08, Elegoo Neptune 4, rooted Creality K1, Sonic Pad …) | Camera, files, temperatures, motion, alerts, stats, backup and calibration. Case lights (pin or LED strip), quad gantry levelling and standard Klipper Z offset saving are supported. QIDI-only buttons are greyed out |
+| Other Klipper + Moonraker printers (Voron, Sovol SV08, Elegoo Neptune 4, rooted Creality K1, Sonic Pad …) | Camera, files, temperatures, motion, alerts, stats, backup and calibration. Case lights (pin or LED strip), quad gantry levelling, standard Klipper Z offset saving, and Happy Hare / AFC filament units are supported. QIDI-only buttons are greyed out |
 | Bambu Lab, stock Prusa, stock Creality K1, Marlin-only printers | Not supported (no Moonraker) |
 
 > Only the QIDI Q2 has been tested so far. Reports from other printers are welcome in [Issues](../../issues).
@@ -73,11 +89,12 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - **Snapshots and video clips** saved to your phone
 - **Picture-in-picture:** keep the camera in a small floating window
 - **Picture adjustments:** brightness, contrast, saturation and more, where the camera supports them
-- **Low data mode:** switch to a lighter stream, automatically when nothing is printing
+- **Saver mode:** a still picture every 1.5 s to save battery and Wi-Fi (off by default)
+- **Camera resolution and frame rate** set from the app, with a backup of the old settings
 - **Live print notification:** progress bar, layer and time left on your lock screen, with **Pause / Resume** and **Light** buttons
 - **First-layer check:** an alert with a camera photo when the first layer is done, with an option to pause after layer 1
 - **"Almost done" alert** about 10 minutes before a print finishes
-- **Print alerts:** started, finished, cancelled, paused (with the reason: tangle, run-out, clog …) and errors
+- **Print alerts:** finished, cancelled, paused (with the reason: tangle, run-out, clog …) and errors; only important events notify your phone
 - **Home-screen widget** with progress, time left and temperatures
 
 ### Control
@@ -94,7 +111,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - Console for advanced users, behind a beginner warning
 - Emergency stop and firmware restart
 
-### QIDI BOX
+### QIDI BOX and other filament units
 - Every slot shown in its **real spool colour**, with material and brand
 - **Load, unload and eject** filament from your phone
 - **Dry while you print**, kept at a safe temperature for the loaded filament
@@ -103,6 +120,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - Pick which slot each colour of a print uses, matched automatically by colour and material
 - Spool notes with grams left, and **low-filament warnings**
 - Supports up to 4 BOXes (16 slots)
+- **Happy Hare** MMUs (ERCF, Tradrack, 3MS …) and **AFC** units (Box Turtle, Night Owl …): load, unload, eject, select, edit filament details and drying where fitted (NOT TESTED)
 
 ### Files
 - **Share to print:** use "Share" or "Open with" in your slicer, Drive or file manager to send G-code straight to the printer
