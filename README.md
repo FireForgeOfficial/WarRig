@@ -16,14 +16,14 @@
 Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.2.1-FF8709)
+![Version](https://img.shields.io/badge/version-1.2.2-FF8709)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
 ## Contents
 
-- [What's new in 1.2.1](#whats-new-in-121)
+- [What's new in 1.2.2](#whats-new-in-122)
 - [Supported printers](#supported-printers)
 - [Features](#features)
 - [Download and install](#download-and-install)
@@ -37,12 +37,15 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ---
 
-## What's new in 1.2.1
+## What's new in 1.2.2
 
-- **WarRig Link:** add a printer by scanning a QR code instead of typing its address. It works with the code on the WarRig printer screen, in WarRig Slicer, or on another phone
-- **Open links straight in the app:** scanning a WarRig Link with your normal camera app, or tapping one, opens WarRig Companion and offers to add the printer
-- **Share a printer:** show any saved printer as a QR code so another phone can add it in seconds. The API key is only included if you choose
-- The app always shows what a code contains and asks before adding or connecting
+This is a hotfix for adding printers with WarRig Link.
+
+- **QR scanning works on every phone:** phones without Google Play services now use the app's own camera scanner. It asks for camera permission the first time, and only then
+- **Paste link:** copy a WarRig Link, or a whole message with one in it, and tap **Paste link** in the printer list
+- **Send a printer as text:** the Share screen now has **Send as text** and **Copy link**, for when the other phone can't scan. Sharing the message straight to WarRig Companion adds the printer too
+- **Pairing code:** type the code shown on the WarRig printer screen and the app finds that printer on your Wi-Fi
+- **Faster Find printers:** printers that announce themselves on the network show up within a second or two
 
 ---
 
@@ -132,7 +135,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - **Settings backup:** copies the printer's config files to `Downloads/WarRig` on your phone. Read-only on the printer
 - **Weekly backup** and **automatic timelapse download** (optional)
 - **Several printers:** save, rename and switch between them, see all of them at a glance, and **find printers on your Wi-Fi** automatically
-- **WarRig Link:** add a printer by scanning its QR code, and share a saved printer as a QR code
+- **WarRig Link:** add a printer by scanning its QR code, pasting its link or typing the pairing code from the printer screen, and share a saved printer as a QR code or a text message
 - **App icon shortcuts:** long-press the icon for Camera, QIDI BOX, Files or All printers
 - **Languages:** English, German, French, Spanish and Italian
 - **Tablet and landscape layout** with side tabs and two pages side by side
@@ -148,7 +151,7 @@ These are in the app and marked **NOT TESTED** until they have been tried on a r
 - Failed print watch and pausing a failed print
 - Spoolman and layer preview
 - Spool-turning drying, Happy Hare and AFC units
-- WarRig Link QR scanning and sharing
+- WarRig Link QR scanning, paste link, pairing codes and sharing
 
 ---
 
@@ -166,7 +169,7 @@ The app checks for new versions each time it opens. Required updates must be ins
 
 ## First start
 
-1. When the app opens, tap **Add a printer**, **Scan WarRig Link QR code** to scan the code on the printer screen, or **Find printers on this Wi-Fi** to search automatically.
+1. When the app opens, tap **Add a printer**, **Scan WarRig Link QR code** or **Pairing code** to use the code on the printer screen, **Paste link** for a link someone sent you, or **Find printers on this Wi-Fi** to search automatically.
 2. Enter a name and the printer's IP address, for example `192.168.0.66`. You'll find it on the printer screen under network / Wi-Fi settings. Port `7125` is added automatically.
 3. Tap the printer to connect. To skip this screen next time, tick **Connect to the last printer automatically**.
 4. Optional: in **Settings → Notifications** turn on **Print alerts**, and allow notifications when Android asks.
@@ -178,11 +181,14 @@ If your Moonraker needs an API key, add it in **Settings → Connection**. The k
 
 A WarRig Link holds a printer's name, home address and, if set, its away-from-home address, so you never have to type an IP address.
 
-- **Add:** tap **Scan WarRig Link QR code** in the printer list, or point your phone's camera app at the code. Check the details, rename the printer if you like, then tap **Add and connect**. A printer you already have is updated instead of added twice.
-- **Share:** tap the QR button next to a printer to show its code. Tick **Include the API key** only if the other person needs it. Anyone who scans the code can watch and control the printer.
+- **Scan:** tap **Scan WarRig Link QR code** in the printer list, or point your phone's camera app at the code.
+- **Paste:** copy a WarRig Link, or a message with one in it, and tap **Paste link**. You can also share the message straight to WarRig Companion.
+- **Pairing code:** tap **Pairing code** and type the code from the WarRig printer screen, such as `WR-4K7Q`. The phone must be on the same Wi-Fi as the printer.
+- Check the details, rename the printer if you like, then tap **Add and connect**. A printer you already have is updated instead of added twice.
+- **Share:** tap the QR button next to a printer to show its code, or use **Send as text** or **Copy link**. Tick **Include the API key** only if the other person needs it. Anyone with the code or link can watch and control the printer.
 - Codes pointing outside your home network are refused, and away-from-home addresses must be Tailscale or https.
 
-Scanning uses the QR scanner built into Google Play services, so the app doesn't need camera permission.
+Scanning uses the QR scanner in Google Play services when the phone has it, so no camera permission is needed. Other phones use the app's own scanner, which asks for camera permission the first time.
 
 ### Away from home
 
@@ -256,8 +262,11 @@ Snapshots, clips, backups and timelapses are saved to your phone's **Pictures, M
 - For alerts that don't depend on the phone at all, set up **printer-sent alerts** in **Settings → Notifications**.
 - Some phones stop background apps. Set WarRig Companion's battery use to **Unrestricted** in Android settings.
 
-**QR scan doesn't start**
-- The scanner comes from Google Play services. Update Google Play services, or add the printer by its address instead.
+**QR scan doesn't work**
+- Allow camera permission when the app's own scanner asks, or use **Paste link** or **Pairing code** instead.
+
+**Pairing code finds nothing**
+- Make sure the phone is on the same Wi-Fi as the printer and the code matches the printer screen exactly.
 
 **BOX slot shows the wrong colour**
 - The colour comes from the BOX (RFID or saved setting). Tap the refresh button on the BOX page, or set the spool on the printer.
