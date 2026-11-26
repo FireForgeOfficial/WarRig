@@ -59,7 +59,6 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 **App**
 - Animated WR start-up screen
 - Updates are now **required**: the update message shows every time the app opens until the new version is installed, with what's new in it
-- **Update log** in Settings → Updates
 - Phone notifications only for important things (print finished, paused, errors, safety, run-out); everything else stays in the app's list
 - Performance: less work on every printer update, fewer redraws and faster file previews
 - Live Tune, more calibration tools, printer info card on Home, and the back button going to Home instead of closing the app
