@@ -16,14 +16,14 @@
 Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.1.3-FF8709)
+![Version](https://img.shields.io/badge/version-1.2.0-FF8709)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
 ## Contents
 
-- [What's new in 1.1.3](#whats-new-in-113)
+- [What's new in 1.2.0](#whats-new-in-120)
 - [Supported printers](#supported-printers)
 - [Features](#features)
 - [Download and install](#download-and-install)
@@ -37,12 +37,23 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ---
 
-## What's new in 1.1.3
+## What's new in 1.2.0
 
-- **Spool-turning drying for the QIDI BOX:** runs QIDI's own drying program with the spools turning, so they heat evenly. It only starts when nothing is printing, every slot is ejected and the filament ends are secured to their spools
-- **Stop drying** now also stops QIDI's drying program if that is what's running
-- Dry while printing works as before
-- Settings → Updates is simpler
+- **Away-from-home access:** add a Tailscale or https address to a printer and the app switches to it automatically when you leave home, with a **REMOTE** badge so you know
+- **Data saver** for the camera when you're away from home or on mobile data
+- **Alerts sent by the printer itself** through ntfy, so they still arrive when your phone isn't connected to the printer
+- **Failed print watch:** alerts when the filament sensor goes empty or the nozzle or bed can't hold its temperature, with an option to pause the print
+- **Spoolman:** see the spool you're printing from, pick another one and see how much is left on each
+- **Layer preview:** look through a G-code file layer by layer before you print it
+- **Print cost:** filament and electricity cost for each print and for the last 6 months, using your own prices
+- **More statistics:** hours per week and filament used by material
+- **Quick Settings tile** with the printer state and time left
+- **Languages:** German, French, Spanish and Italian, chosen in Settings or following your phone
+- **Tablet layout:** tabs down the side and two pages next to each other on big screens
+- **New Settings page:** a short menu, with each group on its own page
+- Printer info card shows the board and Moonraker versions when the printer doesn't report its own
+- Smoother bed mesh view, and a longer start-up screen
+- Demo mode has been removed
 
 ---
 
@@ -65,17 +76,20 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 ## Features
 
 ### Watch
-- **Live camera:** smooth MJPEG stream with pinch zoom up to 6×, pan, rotate and flip
+- **Live camera:** smooth MJPEG stream with pinch zoom up to 6×, pan, rotate and flip, at home or away (see [Away from home](#away-from-home))
 - **Snapshots and video clips** saved to your phone
 - **Picture-in-picture:** keep the camera in a small floating window
 - **Picture adjustments:** brightness, contrast, saturation and more, where the camera supports them
-- **Saver mode:** a still picture every 1.5 s to save battery and Wi-Fi (off by default)
+- **Saver mode:** a still picture every 1.5 s to save battery and Wi-Fi (off by default), and an automatic **data saver** away from home
 - **Camera resolution and frame rate** set from the app, with a backup of the old settings
 - **Live print notification:** progress bar, layer and time left on your lock screen, with **Pause / Resume** and **Light** buttons
 - **First-layer check:** an alert with a camera photo when the first layer is done, with an option to pause after layer 1
 - **"Almost done" alert** about 10 minutes before a print finishes
 - **Print alerts:** finished, cancelled, paused (with the reason: tangle, run-out, clog …) and errors; only important events notify your phone
 - **Home-screen widget** with progress, time left and temperatures
+- **Quick Settings tile:** printer state and time left in your phone's pull-down tiles; tap it to open the app
+- **Failed print watch:** alerts when the filament sensor stays empty, or the nozzle or bed falls well below its temperature mid-print. Can also pause the print
+- **Printer-sent alerts** through the free ntfy app, so they arrive even when your phone can't reach the printer
 
 ### Control
 - Nozzle, bed and chamber temperatures
@@ -84,7 +98,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - Move, home and level, with step sizes and a bed up/down pad
 - Speed, flow and live Z offset (babystep)
 - Case light on/off, including Klipper pin and LED-strip lights
-- **Printer info card** on Home: firmware, CPU temperature and load, memory and storage at a glance; tap for full details
+- **Printer info card** on Home: firmware, Klipper and Moonraker versions, CPU temperature and load, memory and storage at a glance; tap for full details
 - **Skip a failed part mid-print** (exclude object) from a plate map
 - **Live Tune:** adjust flow, speed, pressure advance and Z offset mid-print and see the effect straight away
 - Calibration tools: bed level and mesh, Z offset, input shaper, PID, flow, pressure advance (with tower), extruder, Z tilt or quad gantry, retraction, probe accuracy, bed screws, and a visual bed mesh
@@ -100,6 +114,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - Humidity and temperature for each BOX
 - Pick which slot each colour of a print uses, matched automatically by colour and material
 - Spool notes with grams left, and **low-filament warnings**
+- **Spoolman:** if your printer uses Spoolman, see the active spool, choose another and see the weight left on every spool
 - Supports up to 4 BOXes (16 slots)
 - **Happy Hare** MMUs (ERCF, Tradrack, 3MS …) and **AFC** units (Box Turtle, Night Owl …): load, unload, eject, select, edit filament details and drying where fitted (NOT TESTED)
 
@@ -108,6 +123,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - Upload, then print with one tap
 - **Search and sort** by name, date, size, print time or filament
 - Slicer thumbnails, print time and filament use
+- **Layer preview:** step through a file layer by layer, seen from above, before you start it
 - **Print queue** with an "up next" banner
 - Files on a **USB drive** plugged into the printer
 - **Timelapse videos:** play, download or delete
@@ -121,13 +137,15 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - **Control PIN (guest mode):** others can watch, only you can control. Emergency stop always works
 
 ### Smart extras
-- **Print statistics:** hours, success rate, filament used and a 6-month chart
+- **Print statistics:** hours, success rate, filament used, a 6-month chart, hours per week and filament by material
+- **Print cost:** filament and electricity cost per print and for the last 6 months, using your own prices and currency
 - **Maintenance reminders** based on print hours, for example plate, rods, nozzle and belts, with your own intervals
 - **Settings backup:** copies the printer's config files to `Downloads/WarRig` on your phone. Read-only on the printer
 - **Weekly backup** and **automatic timelapse download** (optional)
 - **Several printers:** save, rename and switch between them, see all of them at a glance, and **find printers on your Wi-Fi** automatically
 - **App icon shortcuts:** long-press the icon for Camera, QIDI BOX, Files or All printers
-- **Demo mode** to try every screen without a printer. It turns off when you leave the app
+- **Languages:** English, German, French, Spanish and Italian
+- **Tablet and landscape layout** with side tabs and two pages side by side
 - **Automatic update check** when the app opens
 
 ### Not tested yet
@@ -136,6 +154,10 @@ These are in the app and marked **NOT TESTED** until they have been tried on a r
 
 - Smart plug control (Shelly, Shelly Plus / Gen 2+, Tasmota, or a Moonraker power device): power off after a print and power cut on a heater error
 - Air filter run after ABS / ASA / PC / PA prints
+- Away-from-home access and printer-sent alerts
+- Failed print watch and pausing a failed print
+- Spoolman and layer preview
+- Spool-turning drying, Happy Hare and AFC units
 
 ---
 
@@ -145,7 +167,7 @@ These are in the app and marked **NOT TESTED** until they have been tried on a r
 2. Open it. If Android asks, allow installing apps from your browser or file manager.
 3. Open **WarRig Companion**.
 
-The app checks for new versions each time it opens and offers to download them. You can turn this off in **Settings → App**.
+The app checks for new versions each time it opens. Required updates must be installed before you carry on; you can also check by hand in **Settings → Updates**.
 
 **Requirements:** Android 8.0 or newer, with the phone on the same network as the printer.
 
@@ -157,22 +179,37 @@ The app checks for new versions each time it opens and offers to download them. 
 2. Enter a name and the printer's IP address, for example `192.168.0.66`. You'll find it on the printer screen under network / Wi-Fi settings. Port `7125` is added automatically.
 3. Tap the printer to connect. To skip this screen next time, tick **Connect to the last printer automatically**.
 4. Optional: in **Settings → Notifications** turn on **Print alerts**, and allow notifications when Android asks.
+5. Optional: pick a language in **Settings → Language**. By default the app follows your phone.
 
-If your Moonraker needs an API key, add it in **Settings → Printer → Connection details**. The key is kept in memory only and never saved on the phone.
+If your Moonraker needs an API key, add it in **Settings → Connection**. The key is kept in memory only and never saved on the phone.
+
+### Away from home
+
+1. Install [Tailscale](https://tailscale.com) on the printer and on your phone, or put the printer behind your own https address.
+2. In the printer list, edit the printer and fill in **Away from home**, for example `100.101.102.103` or `https://printer.example.com`.
+3. The app uses the home address on your Wi-Fi and switches to the away address when it can't reach it. A **REMOTE** badge shows when you're connected from outside.
+
+Only Tailscale addresses and https addresses are accepted, so your printer is never exposed to the open internet.
 
 ---
 
 ## Settings explained
 
-| Section | What's there |
+Settings is a short menu. Tap a row to open its page.
+
+| Page | What's there |
 | --- | --- |
-| App | Update check, Demo mode |
-| Printer | Switch / add printers, API key, firmware restart, detected features |
-| Notifications | Print alerts, keep watching in the background |
+| Printers (top card) | Switch, add, rename and edit printers, including the away-from-home address |
+| Connection | API key and the features found on your printer |
+| Firmware restart | Restart Klipper after an emergency stop or error |
+| Notifications | Print alerts, keep watching in the background, printer-sent alerts (ntfy) |
 | During a print | Live notification, first-layer check, pause after first layer, almost done, after-print actions (light off, chamber heater off, BOX dryer off) |
-| Safety | Heater guard, stuck print alert, PLA chamber limit, motion lock, heater-error power cut, control PIN |
+| Safety | Heater guard, stuck print alert, failed print watch, PLA chamber limit, motion lock, heater-error power cut, control PIN |
 | Automatic | Auto-dry, air filter, power off after print, clear-the-plate alert, light with camera, weekly backup, save timelapses, smart plug |
-| Printer care | Upkeep reminders, print statistics, settings backup |
+| Upkeep reminders / Statistics | Maintenance reminders, print statistics and print cost prices |
+| Backups | Copy the printer's settings to your phone |
+| Language | Phone language, English, German, French, Spanish or Italian |
+| Updates | Check for a new version |
 
 ---
 
@@ -188,7 +225,7 @@ If your Moonraker needs an API key, add it in **Settings → Printer → Connect
 
 ## Privacy and permissions
 
-WarRig Companion talks **only to your printer** (and smart plug, if you set one up) on your home network, plus GitHub for the update check. It has no accounts, no cloud and no tracking.
+WarRig Companion talks **only to your printer** (and smart plug, if you set one up), plus GitHub for the update check. Away from home it uses the Tailscale or https address you gave it. If you turn on printer-sent alerts, the printer sends short alert messages through ntfy to a random topic only you know. The app has no accounts, no cloud and no tracking.
 
 | Permission | Why |
 | --- | --- |
@@ -206,14 +243,16 @@ Snapshots, clips, backups and timelapses are saved to your phone's **Pictures, M
 **Can't connect**
 - Check that the phone is on the same Wi-Fi as the printer, not mobile data or a guest network.
 - Check the IP address on the printer screen. Try opening `http://<printer-ip>:7125/server/info` in the phone's browser.
-- If Moonraker requires an API key, enter it under **Settings → Printer → Connection details**.
+- If Moonraker requires an API key, enter it under **Settings → Connection**.
+- Away from home, check that Tailscale is running on both the phone and the printer.
 
 **No camera picture**
-- The camera only works on your home network for now (see [Roadmap](#roadmap)).
+- Away from home, the camera needs the away-from-home address set (see [Away from home](#away-from-home)). Data saver may show still pictures instead of video.
 - Make sure the printer's webcam is enabled. The app tries the common stream addresses automatically.
 
 **No alerts while the app is closed**
 - Turn on **Print alerts**, and either **Keep watching in background** or **Live print notification**.
+- For alerts that don't depend on the phone at all, set up **printer-sent alerts** in **Settings → Notifications**.
 - Some phones stop background apps. Set WarRig Companion's battery use to **Unrestricted** in Android settings.
 
 **BOX slot shows the wrong colour**
@@ -223,8 +262,8 @@ Snapshots, clips, backups and timelapses are saved to your phone's **Pictures, M
 
 ## Roadmap
 
-- Away-from-home access (camera and control outside your home network)
-- Tested smart plug and air filter support
+- Tested smart plug, air filter, Spoolman and failed print watch support
+- More languages
 - More printer models confirmed
 - WarRig firmware integration once released
 
