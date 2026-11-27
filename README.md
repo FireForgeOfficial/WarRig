@@ -16,14 +16,14 @@
 Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ![Android](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.2.2-FF8709)
+![Version](https://img.shields.io/badge/version-1.3.0-FF8709)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-lightgrey)
 
 ---
 
 ## Contents
 
-- [What's new in 1.2.2](#whats-new-in-122)
+- [What's new in 1.3.0](#whats-new-in-130)
 - [Supported printers](#supported-printers)
 - [Features](#features)
 - [Download and install](#download-and-install)
@@ -37,15 +37,14 @@ Works with official QIDI firmware, and with WarRig firmware once it is released.
 
 ---
 
-## What's new in 1.2.2
+## What's new in 1.3.0
 
-This is a hotfix for adding printers with WarRig Link.
-
-- **QR scanning works on every phone:** phones without Google Play services now use the app's own camera scanner. It asks for camera permission the first time, and only then
-- **Paste link:** copy a WarRig Link, or a whole message with one in it, and tap **Paste link** in the printer list
-- **Send a printer as text:** the Share screen now has **Send as text** and **Copy link**, for when the other phone can't scan. Sharing the message straight to WarRig Companion adds the printer too
-- **Pairing code:** type the code shown on the WarRig printer screen and the app finds that printer on your Wi-Fi
-- **Faster Find printers:** printers that announce themselves on the network show up within a second or two
+- **Print watch:** a live camera view that also checks the print every 10 seconds: filament sensor, nozzle and bed temperatures, and whether the print is still moving. If something looks wrong twice in a row, you get a warning with **Pause** and **Stop**, or you can ignore it for that print. Open it from the camera page
+- **Tablet dashboard:** on a tablet held sideways, Home becomes one screen with the camera, print progress, temperatures, fans, the BOX and the main buttons
+- **Back up and restore the app:** save all of WarRig Companion's settings (printers, alerts, presets, camera and more) to a file, restore them on a new phone, and turn on a weekly backup to a folder you choose. Your control PIN and API keys are never put in the backup
+- **Printer screen lock:** see whether a WarRig printer's touchscreen lock is on, and clear a forgotten screen PIN from the app
+- **WarRig printer codes:** a code from the WarRig printer screen now also sets up the printer's alerts on your phone. Codes from older WarRig screens still work
+- **Night mode:** if the printer's WarRig night mode has turned its light off, the app turns it on while you watch the camera, then off again
 
 ---
 
@@ -68,6 +67,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 ## Features
 
 ### Watch
+- **Print watch:** the live camera plus a check on the print every 10 seconds, with Pause and Stop if something looks wrong
 - **Live camera:** smooth MJPEG stream with pinch zoom up to 6×, pan, rotate and flip, at home or away (see [Away from home](#away-from-home))
 - **Snapshots and video clips** saved to your phone
 - **Picture-in-picture:** keep the camera in a small floating window
@@ -127,6 +127,7 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - **Chamber limit for PLA:** keeps the chamber at 45 °C or less with PLA loaded
 - **Motion lock:** blocks homing, jogging and calibration during a print; filament changes still work while paused
 - **Control PIN (guest mode):** others can watch, only you can control. Emergency stop always works
+- **Printer screen lock:** check a WarRig printer's touchscreen lock and clear a forgotten screen PIN
 
 ### Smart extras
 - **Print statistics:** hours, success rate, filament used, a 6-month chart, hours per week and filament by material
@@ -138,7 +139,8 @@ WarRig Companion talks to **Moonraker**, the service that runs alongside Klipper
 - **WarRig Link:** add a printer by scanning its QR code, pasting its link or typing the pairing code from the printer screen, and share a saved printer as a QR code or a text message
 - **App icon shortcuts:** long-press the icon for Camera, QIDI BOX, Files or All printers
 - **Languages:** English, German, French, Spanish and Italian
-- **Tablet and landscape layout** with side tabs and two pages side by side
+- **Tablet and landscape layout** with side tabs and two pages side by side, and a one-screen **dashboard** on tablets held sideways
+- **App backup and restore:** move all your settings to a new phone, with an optional weekly backup
 - **Automatic update check** when the app opens
 
 ### Not tested yet
@@ -152,6 +154,7 @@ These are in the app and marked **NOT TESTED** until they have been tried on a r
 - Spoolman and layer preview
 - Spool-turning drying, Happy Hare and AFC units
 - WarRig Link QR scanning, paste link, pairing codes and sharing
+- Print watch, the tablet dashboard, app backup and restore, and the printer screen lock
 
 ---
 
@@ -211,10 +214,10 @@ Settings is a short menu. Tap a row to open its page.
 | Firmware restart | Restart Klipper after an emergency stop or error |
 | Notifications | Print alerts, keep watching in the background, printer-sent alerts (ntfy) |
 | During a print | Live notification, first-layer check, pause after first layer, almost done, after-print actions (light off, chamber heater off, BOX dryer off) |
-| Safety | Heater guard, stuck print alert, failed print watch, PLA chamber limit, motion lock, heater-error power cut, control PIN |
+| Safety | Heater guard, stuck print alert, failed print watch, PLA chamber limit, motion lock, heater-error power cut, control PIN, printer screen lock |
 | Automatic | Auto-dry, air filter, power off after print, clear-the-plate alert, light with camera, weekly backup, save timelapses, smart plug |
 | Upkeep reminders / Statistics | Maintenance reminders, print statistics and print cost prices |
-| Backups | Copy the printer's settings to your phone |
+| Backups | Copy the printer's settings to your phone, and back up or restore this app's own settings |
 | Language | Phone language, English, German, French, Spanish or Italian |
 | Updates | Check for a new version |
 
@@ -240,6 +243,8 @@ WarRig Companion talks **only to your printer** (and smart plug, if you set one 
 | Notifications | Print alerts and the live progress notification |
 | Foreground service | Keep watching while the app is closed (it shows its own notification and can be stopped any time) |
 | Run at startup | Re-schedule local print-plan reminders only. No printer connection starts at boot |
+
+App backups go only where you choose to save them, and never include your control PIN or API keys.
 
 Snapshots, clips, backups and timelapses are saved to your phone's **Pictures, Movies and Downloads** folders under `WarRig`.
 
